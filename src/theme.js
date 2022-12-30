@@ -32,5 +32,33 @@ export const themeSettings = (mode) => {
             },
           }),
     },
+    typography: {
+      fontFamily: 'Nunito Sans',
+      fontSize: 18,
+      h1: {
+        fontFamily: ['Nunito Sans', 'sans-serif'].join(','),
+        fontSize: 22,
+      },
+      h2: {
+        fontFamily: ['Nunito Sans', 'sans-serif'].join(','),
+        fontSize: 20,
+      },
+      h3: {
+        fontFamily: ['Nunito Sans', 'sans-serif'].join(','),
+        fontSize: 18,
+      },
+      h4: {
+        fontFamily: ['Nunito Sans', 'sans-serif'].join(','),
+        fontSize: 16,
+      },
+      h5: {
+        fontFamily: ['Nunito Sans', 'sans-serif'].join(','),
+        fontSize: 14,
+      },
+      h6: {
+        fontFamily: ['Nunito Sans', 'sans-serif'].join(','),
+        fontSize: 12,
+      },
+    },
   };
 };

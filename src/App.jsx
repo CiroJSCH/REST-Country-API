@@ -1,6 +1,12 @@
+// Libraries
+import { useState } from 'react';
 import { CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
-import { useState } from 'react';
+
+// Components
+import Header from './components/Header';
+
+// Theme config
 import { themeSettings } from './theme';
 
 const App = () => {
@@ -12,7 +18,9 @@ const App = () => {
 
   return (
     <ThemeProvider theme={createTheme(themeSettings(mode))}>
-      <CssBaseline bgcolor={background}>App</CssBaseline>
+      <CssBaseline bgcolor={background}>
+        <Header />
+      </CssBaseline>
     </ThemeProvider>
   );
 };
