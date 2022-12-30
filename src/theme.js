@@ -60,5 +60,6 @@ export const themeSettings = (mode) => {
         fontSize: 12,
       },
     },
+    shadow: 2,
   };
 };
