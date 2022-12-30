@@ -21,7 +21,7 @@ const Header = ({ changeMode }) => {
       <Typography fontWeight={800} variant={isDesktopScreen ? 'h2' : 'h4'}>
         Where in the world?
       </Typography>
-      <Box display='flex' alignItems='center' gap={1} onClick={changeMode}>
+      <Box display='flex' alignItems='center' gap={1} onClick={changeMode} sx={{cursor: "pointer"}}>
         {theme.palette.mode === 'dark' ? <LightMode /> : <ModeNight bgcolor={"red"}/>}
         <Typography variant='h4'>
           {theme.palette.mode === 'dark' ? 'Light' : 'Dark'} mode
