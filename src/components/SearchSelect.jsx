@@ -19,7 +19,7 @@ const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 const StyledList = styled(List)(({ theme, display }) => ({
   width: "100%",
   display,
-  borderRadius: 3,
+  borderRadius: 5,
   backgroundColor: theme.palette.primary.main,
   position: 'absolute',
   top: '4.5rem',
@@ -60,7 +60,7 @@ const SelectRegion = () => {
           onClick={() => setIsOpen(!isOpen)}
         />
       </Box>
-      <StyledList sx={{ backgroundColor: gray }} display={isOpen ? "block" : "none"}>
+      <StyledList sx={{ boxShadow: theme.shadow }} display={isOpen ? "block" : "none"}>
         {regions.map((region, index) => {
           return (
             <StyledListItem key={index}>
