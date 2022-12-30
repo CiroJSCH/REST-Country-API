@@ -1,10 +1,11 @@
 // Libraries
 import { useState } from 'react';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Box } from '@mui/material';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 
 // Components
 import Header from './components/Header';
+import Search from './components/Search';
 
 // Theme config
 import { themeSettings } from './theme';
@@ -24,6 +25,9 @@ const App = () => {
     <ThemeProvider theme={createTheme(themeSettings(mode))}>
       <CssBaseline bgcolor={background}>
         <Header changeMode={changeMode}/>
+        <Box width="90%" m="0 auto">
+          <Search />
+        </Box>
       </CssBaseline>
     </ThemeProvider>
   );
