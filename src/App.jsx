@@ -16,10 +16,14 @@ const App = () => {
 
   const [mode, setMode] = useState("dark");
 
+  const changeMode = () => {
+    setMode(mode === "dark" ? "light" : "dark");
+  }
+
   return (
     <ThemeProvider theme={createTheme(themeSettings(mode))}>
       <CssBaseline bgcolor={background}>
-        <Header />
+        <Header changeMode={changeMode}/>
       </CssBaseline>
     </ThemeProvider>
   );
