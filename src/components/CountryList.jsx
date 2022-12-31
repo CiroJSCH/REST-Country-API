@@ -12,7 +12,7 @@ const CountryList = () => {
   return (
     <Grid
       container
-      spacing={{ xs: 5, md: 3, xl: 12 }}
+      spacing={{ xs: 5, md: 4, xl: 8 }}
       columns={{ xs: 1, sm: 8, md: 12 }}
     >
       <Grid item xs={1} sm={4} md={3}>

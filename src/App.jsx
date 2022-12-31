@@ -26,7 +26,7 @@ const App = () => {
     <ThemeProvider theme={createTheme(themeSettings(mode))}>
       <CssBaseline bgcolor={background}>
         <Header changeMode={changeMode}/>
-        <Box width="90%" m="0 auto" display="flex" flexDirection="column" gap={9}>
+        <Box width="90%" m="0 auto" display="flex" flexDirection="column" gap={7}>
           <Search />
           <CountryList />
         </Box>
