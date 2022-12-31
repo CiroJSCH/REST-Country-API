@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 // Components
 import Header from './components/Header';
 import Search from './components/Search';
+import CountryList from './components/CountryList';
 
 // Theme config
 import { themeSettings } from './theme';
@@ -25,8 +26,9 @@ const App = () => {
     <ThemeProvider theme={createTheme(themeSettings(mode))}>
       <CssBaseline bgcolor={background}>
         <Header changeMode={changeMode}/>
-        <Box width="90%" m="0 auto">
+        <Box width="90%" m="0 auto" display="flex" flexDirection="column" gap={9}>
           <Search />
+          <CountryList />
         </Box>
       </CssBaseline>
     </ThemeProvider>
