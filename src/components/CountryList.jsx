@@ -9,7 +9,7 @@ import { SearchContext } from '../context/SearchProvider';
 import CountryItem from './CountryItem';
 
 // Fetch
-import { fetchAllData, fetchByName, fetchByRegion } from '../fetch';
+import { fetchAllData, fetchByName, fetchByRegion } from '../data/fetch';
 
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
