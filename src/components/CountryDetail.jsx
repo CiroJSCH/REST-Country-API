@@ -78,6 +78,7 @@ const CountryDetail = ({byCode}) => {
             flexDirection={isDesktopScreen ? 'row' : 'column'}
             alignItems={isDesktopScreen ? 'center' : 'flex-start'}
             justifyContent={isDesktopScreen ? 'space-between' : 'flex-start'}
+            gap={5}
           >
             {/* FLAG */}
             <Box
@@ -85,14 +86,13 @@ const CountryDetail = ({byCode}) => {
               alt={country.name.common}
               src={country.flags.svg}
               width={isDesktopScreen ? '40%' : '100%'}
-              maxWidth="40rem"
               display="flex"
               margin={!isDesktopScreen && `0 auto`}
               mt={8}
             />
 
             {/* COUNTRY INFO */}
-            <Box mt={5} display='flex' flexDirection='column' gap={4} minWidth="50%">
+            <Box mt={5} display='flex' flexDirection='column' gap={4} >
               {/* NAME */}
               <Typography variant='h1' fontWeight={800} fontSize={isDesktopScreen ? 30 : 24}>
                 {country.name.common}
@@ -139,7 +139,7 @@ const CountryDetail = ({byCode}) => {
                 <Typography variant='h4' fontWeight={600}>
                   Border Countries:
                 </Typography>
-                <Box display='flex' gap={2} flexWrap='wrap' maxWidth={"30rem"}>
+                <Box display='flex' gap={2} flexWrap='wrap' maxWidth={"35rem"}>
                   {country.borders.map((border, index) => {
                     return (
                       <StyledButtonCountry key={index} variant='contained' onClick={() => navigate(`/code/${border}`)}>
