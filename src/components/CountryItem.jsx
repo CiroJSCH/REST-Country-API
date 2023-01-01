@@ -21,6 +21,10 @@ const CountryItem = ({ country }) => {
         backgroundColor: gray,
         paddingBottom: '1.5rem',
         boxShadow: theme.shadow,
+        cursor: "pointer",
+        "&:hover": {
+          opacity: 0.8
+        }
       }}
     >
       <CardMedia
