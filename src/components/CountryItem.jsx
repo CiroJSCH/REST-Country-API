@@ -31,7 +31,7 @@ const CountryItem = ({ country }) => {
       }}
     >
       <CardMedia
-        sx={{ height: 180 }}
+        sx={{ height: 205 }}
         image={country.flags.svg}
         title='green iguana'
       />
