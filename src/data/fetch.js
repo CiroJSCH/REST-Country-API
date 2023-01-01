@@ -18,3 +18,10 @@ export const fetchByName = async (name) => {
   );
   return response.data;
 };
+
+export const fetchByCode = async (code) => {
+  const response = await axios.get(
+    `https://restcountries.com/v3.1/alpha/${code}`
+  );
+  return response.data;
+};

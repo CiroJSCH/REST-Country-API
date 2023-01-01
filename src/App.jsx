@@ -39,10 +39,18 @@ const App = () => {
             gap={7}
           >
             <SearchContextProvider>
-              <Search />
               <Routes>
-                <Route path='/' element={<CountryList />} />
+                <Route
+                  path='/'
+                  element={
+                    <>
+                      <Search />
+                      <CountryList />
+                    </>
+                  }
+                />
                 <Route path='/:name' element={<CountryDetail />} />
+                <Route path='/code/:code' element={<CountryDetail byCode={true}/>} />
               </Routes>
             </SearchContextProvider>
           </Box>
