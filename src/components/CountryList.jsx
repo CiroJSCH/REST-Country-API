@@ -20,7 +20,7 @@ const CountryList = () => {
     };
 
     fetchData();
-  }, [countries]);
+  }, []);
 
   return (
     <Grid
