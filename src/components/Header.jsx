@@ -2,23 +2,33 @@
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { LightMode, ModeNight } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ changeMode }) => {
   const theme = useTheme();
   const gray = theme.palette.primary.main;
-
+  const navigate = useNavigate();
   const isDesktopScreen = useMediaQuery('(min-width: 1000px)');
 
   return (
-    <Box bgcolor={gray} py={isDesktopScreen ? 3 : 4} sx={{ boxShadow: theme.shadow }}>
+    <Box
+      bgcolor={gray}
+      py={isDesktopScreen ? 3 : 4}
+      sx={{ boxShadow: theme.shadow }}
+    >
       <Box
         width='90%'
         display='flex'
         justifyContent='space-between'
         alignItems='center'
-        m="0 auto"
+        m='0 auto'
       >
-        <Typography fontWeight={800} variant={isDesktopScreen ? 'h2' : 'h4'}>
+        <Typography
+          fontWeight={800}
+          variant={isDesktopScreen ? 'h2' : 'h4'}
+          onClick={() => navigate('/')}
+          sx={{ cursor: 'pointer' }}
+        >
           Where in the world?
         </Typography>
         <Box
