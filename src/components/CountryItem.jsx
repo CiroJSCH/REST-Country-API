@@ -8,28 +8,31 @@ import {
   Card,
   useMediaQuery,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const CountryItem = ({ country }) => {
   const theme = useTheme();
   const gray = theme.palette.primary.main;
   const isDesktopScreen = useMediaQuery('(min-width: 1000px)');
+  const navigate = useNavigate();
 
   return (
     <Card
+      onClick={() => navigate(`/${country.name.common}`)}
       sx={{
         width: '100%',
         backgroundColor: gray,
         paddingBottom: '1.5rem',
         boxShadow: theme.shadow,
-        cursor: "pointer",
-        "&:hover": {
-          opacity: 0.8
-        }
+        cursor: 'pointer',
+        '&:hover': {
+          opacity: 0.8,
+        },
       }}
     >
       <CardMedia
         sx={{ height: 180 }}
-        image={ country.flags.svg }
+        image={country.flags.svg}
         title='green iguana'
       />
       <CardContent sx={{ padding: '1.5rem' }}>
