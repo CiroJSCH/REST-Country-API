@@ -1,7 +1,10 @@
 // Libraries
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Grid } from '@mui/material';
+
+// Context
+import { SearchContext } from '../context/SearchProvider';
 
 // Components
 import CountryItem from './CountryItem';
@@ -9,8 +12,10 @@ import CountryItem from './CountryItem';
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
 
+  const { name, region, search } = useContext(SearchContext);
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchAllData = async () => {
       try {
         const response = await axios.get('https://restcountries.com/v3.1/all');
         setCountries(response.data);
@@ -19,8 +24,37 @@ const CountryList = () => {
       }
     };
 
-    fetchData();
-  }, []);
+    const fetchByRegion = async () => {
+      try {
+        const response = await axios.get(`https://restcountries.com/v3.1/region/${region}`);
+        setCountries(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const fetchByName = async () => {
+      try {
+        const response = await axios.get(`https://restcountries.com/v3.1/name/${name}`);
+        setCountries(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (region === '' && name === '') {
+      fetchAllData();
+    }
+
+    if (name !== '') {
+      fetchByName();
+    }
+
+    if (region !== '') {
+      fetchByRegion();
+    }
+
+  }, [region, name, search]);
 
   return (
     <Grid

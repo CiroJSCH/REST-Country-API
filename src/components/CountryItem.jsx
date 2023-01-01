@@ -1,3 +1,4 @@
+// Libraries
 import { useTheme } from '@mui/material/styles';
 import {
   Box,
@@ -12,7 +13,6 @@ const CountryItem = ({ country }) => {
   const theme = useTheme();
   const gray = theme.palette.primary.main;
   const isDesktopScreen = useMediaQuery('(min-width: 1000px)');
-  const isXlDesktopScreen = useMediaQuery('(min-width: 1600px)');
 
   return (
     <Card

@@ -1,10 +1,14 @@
 // Libraries
+import { useContext } from 'react';
 import { Box, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 // Components
 import StyledTextField from './SearchInput';
 import SelectRegion from './SearchSelect';
+
+// Context
+import { SearchContext } from '../context/SearchProvider';
 
 // Icons
 import { Search as SearchIcon } from '@mui/icons-material';
@@ -14,6 +18,8 @@ const Search = () => {
   const gray = theme.palette.primary.main;
 
   const isDesktopScreen = useMediaQuery('(min-width: 1000px)');
+
+  const { setName, setSearch } = useContext(SearchContext);
 
   return (
     <Box
@@ -35,8 +41,15 @@ const Search = () => {
         borderRadius={1}
         py={2}
       >
-        <SearchIcon sx={{cursor:"pointer"}}/>
-        <StyledTextField placeholder='Search for a country...' />
+        <SearchIcon
+          sx={{ cursor: 'pointer' }}
+          onClick={() => setSearch(true)}
+        />
+        <StyledTextField
+          placeholder='Search for a country...'
+          onChange={(e) => setName(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && setSearch(true)}
+        />
       </Box>
 
       {/* FILTER BY REGION */}

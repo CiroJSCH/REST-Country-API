@@ -17,7 +17,7 @@ import { SearchContext } from '../context/SearchProvider';
 // Icons
 import { KeyboardArrowDown } from '@mui/icons-material';
 
-const regions = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
 const StyledList = styled(List)(({ theme, display }) => ({
   width: '100%',
