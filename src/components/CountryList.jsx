@@ -1,6 +1,5 @@
 // Libraries
 import { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
 import { Grid } from '@mui/material';
 
 // Context
@@ -9,53 +8,32 @@ import { SearchContext } from '../context/SearchProvider';
 // Components
 import CountryItem from './CountryItem';
 
+// Fetch
+import { fetchAllData, fetchByName, fetchByRegion } from '../fetch';
+
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
 
-  const { name, region, search, setRegion, setName } = useContext(SearchContext);
+  const { name, region, search, setRegion, setName } =
+    useContext(SearchContext);
 
   useEffect(() => {
-    const fetchAllData = async () => {
-      try {
-        const response = await axios.get('https://restcountries.com/v3.1/all');
-        setCountries(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const fetchByRegion = async () => {
-      try {
-        const response = await axios.get(`https://restcountries.com/v3.1/region/${region}`);
-        setCountries(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    const fetchByName = async () => {
-      try {
-        const response = await axios.get(`https://restcountries.com/v3.1/name/${name}`);
-        setCountries(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
     if (region === '' && name === '') {
-      fetchAllData();
+      fetchAllData().then((response) => setCountries(response));
     }
 
     if (name !== '') {
-      fetchByName();
-      setRegion('');
+      fetchByName(name).then((response) => {
+        setCountries(response), setRegion('');
+      });
     }
 
     if (region !== '') {
-      fetchByRegion();
-      setName('');
+      fetchByRegion(region).then((response) => {
+        setCountries(response);
+        setName('');
+      });
     }
-
   }, [region, name, search]);
 
   return (
@@ -67,7 +45,7 @@ const CountryList = () => {
       {countries.map((country, index) => {
         return (
           <Grid key={index} item xs={1} sm={4} md={4} xl={3}>
-            <CountryItem country={country}/>
+            <CountryItem country={country} />
           </Grid>
         );
       })}
