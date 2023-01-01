@@ -8,7 +8,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 
-const CountryItem = () => {
+const CountryItem = ({ country }) => {
   const theme = useTheme();
   const gray = theme.palette.primary.main;
   const isDesktopScreen = useMediaQuery('(min-width: 1000px)');
@@ -25,41 +25,55 @@ const CountryItem = () => {
     >
       <CardMedia
         sx={{ height: 180 }}
-        image='https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg'
+        image={ country.flags.svg }
         title='green iguana'
       />
       <CardContent sx={{ padding: '1.5rem' }}>
-        <Typography gutterBottom variant={isDesktopScreen ? "h3" : "h4"} component='div' fontWeight={600}>
-          United States of America
+        <Typography
+          gutterBottom
+          variant={isDesktopScreen ? 'h3' : 'h4'}
+          component='div'
+          fontWeight={600}
+        >
+          {country.name.common}
         </Typography>
         <Box display='flex' flexDirection='column' gap={1} mt={2}>
-          <Box display="flex" gap={1}>
-            <Typography variant={isDesktopScreen ? "h4" : "h5"} fontWeight={600}>
+          <Box display='flex' gap={1}>
+            <Typography
+              variant={isDesktopScreen ? 'h4' : 'h5'}
+              fontWeight={600}
+            >
               Population:
             </Typography>
 
-            <Typography variant={isDesktopScreen ? "h4" : "h5"}>
-              81,234,245
+            <Typography variant={isDesktopScreen ? 'h4' : 'h5'}>
+              {country.population}
             </Typography>
           </Box>
 
-          <Box display="flex" gap={1}>
-            <Typography variant={isDesktopScreen ? "h4" : "h5"} fontWeight={600}>
+          <Box display='flex' gap={1}>
+            <Typography
+              variant={isDesktopScreen ? 'h4' : 'h5'}
+              fontWeight={600}
+            >
               Region:
             </Typography>
-            
-            <Typography variant={isDesktopScreen ? "h4" : "h5"}>
-              Some region
+
+            <Typography variant={isDesktopScreen ? 'h4' : 'h5'}>
+              {country.region}
             </Typography>
           </Box>
 
-          <Box display="flex" gap={1}>
-            <Typography variant={isDesktopScreen ? "h4" : "h5"} fontWeight={600}>
+          <Box display='flex' gap={1}>
+            <Typography
+              variant={isDesktopScreen ? 'h4' : 'h5'}
+              fontWeight={600}
+            >
               Capital:
             </Typography>
 
-            <Typography variant={isDesktopScreen ? "h4" : "h5"}>
-              Some capital
+            <Typography variant={isDesktopScreen ? 'h4' : 'h5'}>
+              {country.capital}
             </Typography>
           </Box>
         </Box>
