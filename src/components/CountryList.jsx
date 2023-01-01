@@ -19,20 +19,26 @@ const CountryList = () => {
 
   useEffect(() => {
     if (region === '' && name === '') {
-      fetchAllData().then((response) => setCountries(response));
+      fetchAllData()
+        .then((response) => setCountries(response))
+        .catch((err) => console.log(err));
     }
 
     if (name !== '') {
-      fetchByName(name).then((response) => {
-        setCountries(response), setRegion('');
-      });
+      fetchByName(name)
+        .then((response) => {
+          setCountries(response), setRegion('');
+        })
+        .catch((err) => console.log(err));
     }
 
     if (region !== '') {
-      fetchByRegion(region).then((response) => {
-        setCountries(response);
-        setName('');
-      });
+      fetchByRegion(region)
+        .then((response) => {
+          setCountries(response);
+          setName('');
+        })
+        .catch((err) => console.log(err));
     }
   }, [region, name, search]);
 
