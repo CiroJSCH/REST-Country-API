@@ -12,7 +12,7 @@ import CountryItem from './CountryItem';
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
 
-  const { name, region, search } = useContext(SearchContext);
+  const { name, region, search, setRegion, setName } = useContext(SearchContext);
 
   useEffect(() => {
     const fetchAllData = async () => {
@@ -48,10 +48,12 @@ const CountryList = () => {
 
     if (name !== '') {
       fetchByName();
+      setRegion('');
     }
 
     if (region !== '') {
       fetchByRegion();
+      setName('');
     }
 
   }, [region, name, search]);
