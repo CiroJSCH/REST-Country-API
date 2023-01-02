@@ -110,7 +110,7 @@ const CountryDetail = ({byCode}) => {
                 {/* PRINCIPAL */}
                 <Box display='flex' flexDirection='column' gap={2}>
                   <ItemInfo name={'Native name'} value={country.name.common} />
-                  <ItemInfo name={'Population'} value={country.population} />
+                  <ItemInfo name={'Population'} value={country.population.toLocaleString('en-US')} />
                   <ItemInfo name={'Region'} value={country.region} />
                   <ItemInfo name={'Sub Region'} value={country.subregion} />
                   <ItemInfo name={'Capital'} value={country.capital} />

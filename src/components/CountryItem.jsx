@@ -54,7 +54,7 @@ const CountryItem = ({ country }) => {
             </Typography>
 
             <Typography variant={isDesktopScreen ? 'h4' : 'h5'}>
-              {country.population}
+              {country.population.toLocaleString('en-US')}
             </Typography>
           </Box>
 
