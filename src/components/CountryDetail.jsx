@@ -142,7 +142,7 @@ const CountryDetail = ({byCode}) => {
                   Border Countries:
                 </Typography>
                 <Box display='flex' gap={2} flexWrap='wrap' maxWidth={"35rem"}>
-                  {country.borders.map((border, index) => {
+                  {country.borders?.map((border, index) => {
                     return (
                       <StyledButtonCountry key={index} variant='contained' onClick={() => navigate(`/code/${border}`)}>
                         {border}
@@ -156,6 +156,7 @@ const CountryDetail = ({byCode}) => {
         </Box>
       )}
     </>
+
   );
 };
 

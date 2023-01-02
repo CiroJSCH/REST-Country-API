@@ -1,12 +1,13 @@
 // Libraries
 import { useEffect, useState, useContext } from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
 // Context
 import { SearchContext } from '../context/SearchProvider';
 
 // Components
 import CountryItem from './CountryItem';
+import NotFound from './NotFound';
 
 // Fetch
 import { fetchAllData, fetchByName, fetchByRegion } from '../data/fetch';
@@ -14,7 +15,7 @@ import { fetchAllData, fetchByName, fetchByRegion } from '../data/fetch';
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
 
-  const { name, region, search, setRegion, setName } =
+  const { name, region, search, setRegion, setName, notFound, setNotFound } =
     useContext(SearchContext);
 
   useEffect(() => {
@@ -27,9 +28,13 @@ const CountryList = () => {
     if (name !== '') {
       fetchByName(name)
         .then((response) => {
-          setCountries(response), setRegion('');
+          setCountries(response), setRegion(''), setNotFound(false);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          if (err.response.status === 404) {
+            setNotFound(true);
+          }
+        });
     }
 
     if (region !== '') {
@@ -43,19 +48,25 @@ const CountryList = () => {
   }, [region, name, search]);
 
   return (
-    <Grid
-      container
-      spacing={{ xs: 5, md: 4, xl: 8 }}
-      columns={{ xs: 1, sm: 8, md: 12, xl: 12 }}
-    >
-      {countries.map((country, index) => {
-        return (
-          <Grid key={index} item xs={1} sm={4} md={4} xl={3}>
-            <CountryItem country={country} />
-          </Grid>
-        );
-      })}
-    </Grid>
+    <>
+      {notFound ? (
+        <NotFound />
+      ) : (
+        <Grid
+          container
+          spacing={{ xs: 5, md: 4, xl: 8 }}
+          columns={{ xs: 1, sm: 8, md: 12, xl: 12 }}
+        >
+          {countries.map((country, index) => {
+            return (
+              <Grid key={index} item xs={1} sm={4} md={4} xl={3}>
+                <CountryItem country={country} />
+              </Grid>
+            );
+          })}
+        </Grid>
+      )}
+    </>
   );
 };
 
