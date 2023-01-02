@@ -50,8 +50,7 @@ const App = () => {
                     </>
                   }
                 />
-                <Route path='/:name' element={<CountryDetail />} />
-                <Route path='/code/:code' element={<CountryDetail byCode={true}/>} />
+                <Route path='/:code' element={<CountryDetail />} />
               </Routes>
             </SearchContextProvider>
           </Box>

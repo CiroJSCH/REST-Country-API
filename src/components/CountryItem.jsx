@@ -18,7 +18,7 @@ const CountryItem = ({ country }) => {
 
   return (
     <Card
-      onClick={() => navigate(`/${country.name.common}`)}
+      onClick={() => navigate(`/${country.cca3}`)}
       sx={{
         width: '100%',
         backgroundColor: gray,

@@ -38,29 +38,20 @@ const ItemInfo = ({ name, value }) => {
   );
 };
 
-const CountryDetail = ({byCode}) => {
-  const { name, code } = useParams();
+const CountryDetail = () => {
+  const { code } = useParams();
   const [country, setCountry] = useState('');
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const isDesktopScreen = useMediaQuery('(min-width: 1300px)');
 
   useEffect(() => {
-    if (!byCode) {
-      fetchByName(name)
-      .then((response) => {
-        setCountry(response[0]);
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
-    } else {
-      fetchByCode(code).then((response) => {
-        setCountry(response[0]);
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
-    }
-  }, [name, loading, code]);
+    fetchByCode(code).then((response) => {
+      setCountry(response[0]);
+      setLoading(false);
+    })
+    .catch((err) => console.log(err));
+  }, [code, loading]);
 
   return (
     <>
@@ -144,7 +135,7 @@ const CountryDetail = ({byCode}) => {
                 <Box display='flex' gap={2} flexWrap='wrap' maxWidth={"35rem"}>
                   {country.borders?.map((border, index) => {
                     return (
-                      <StyledButtonCountry key={index} variant='contained' onClick={() => navigate(`/code/${border}`)}>
+                      <StyledButtonCountry key={index} variant='contained' onClick={() => navigate(`/${border}`)}>
                         {border}
                       </StyledButtonCountry>
                     );
