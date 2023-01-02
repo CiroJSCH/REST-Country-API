@@ -9,6 +9,7 @@ const Header = ({ changeMode }) => {
   const gray = theme.palette.primary.main;
   const navigate = useNavigate();
   const isDesktopScreen = useMediaQuery('(min-width: 1000px)');
+  const isXlDesktopScreen = useMediaQuery('(min-width: 1600px)');
 
   return (
     <Box
@@ -17,7 +18,7 @@ const Header = ({ changeMode }) => {
       sx={{ boxShadow: theme.shadow }}
     >
       <Box
-        width='90%'
+        width={isXlDesktopScreen ? "80%" : "90%"}
         display='flex'
         justifyContent='space-between'
         alignItems='center'

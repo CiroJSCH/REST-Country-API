@@ -1,6 +1,6 @@
 // Libraries
 import { useState } from 'react';
-import { CssBaseline, Box } from '@mui/material';
+import { CssBaseline, Box, useMediaQuery } from '@mui/material';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -19,6 +19,7 @@ import { themeSettings } from './theme';
 const App = () => {
   const theme = useTheme();
   const background = theme.palette.background.default;
+  const isXlDesktopScreen = useMediaQuery('(min-width: 1600px)');
 
   const [mode, setMode] = useState('dark');
 
@@ -32,7 +33,7 @@ const App = () => {
         <CssBaseline bgcolor={background}>
           <Header changeMode={changeMode} />
           <Box
-            width='90%'
+            width={isXlDesktopScreen ? "80%" : "90%"}
             m='0 auto'
             display='flex'
             flexDirection='column'

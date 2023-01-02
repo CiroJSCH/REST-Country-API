@@ -65,7 +65,7 @@ const CountryDetail = ({byCode}) => {
   return (
     <>
       {!loading && (
-        <Box mt={6}>
+        <Box mt={9}>
           <StyledButton
             variant='contained'
             startIcon={<KeyboardBackspace />}
@@ -79,6 +79,8 @@ const CountryDetail = ({byCode}) => {
             alignItems={isDesktopScreen ? 'center' : 'flex-start'}
             justifyContent={isDesktopScreen ? 'space-between' : 'flex-start'}
             gap={5}
+            mt={2}
+
           >
             {/* FLAG */}
             <Box
