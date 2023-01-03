@@ -42,7 +42,7 @@ const App = () => {
             <SearchContextProvider>
               <Routes>
                 <Route
-                  path='/'
+                  path='/REST-Country-API/'
                   element={
                     <>
                       <Search />
@@ -50,7 +50,7 @@ const App = () => {
                     </>
                   }
                 />
-                <Route path='/:code' element={<CountryDetail />} />
+                <Route path='/REST-Country-API/:code' element={<CountryDetail />} />
               </Routes>
             </SearchContextProvider>
           </Box>
