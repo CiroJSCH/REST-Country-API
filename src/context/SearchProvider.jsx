@@ -6,7 +6,6 @@ export const SearchContext = createContext(null);
 const SearchContextProvider = ({ children }) => {
   const [region, setRegion] = useState('');
   const [name, setName] = useState('');
-  const [search, setSearch] = useState(false);
   const [notFound, setNotFound] = useState(false);
 
   return (
@@ -16,8 +15,6 @@ const SearchContextProvider = ({ children }) => {
         setRegion,
         name,
         setName,
-        search,
-        setSearch,
         notFound,
         setNotFound,
       }}

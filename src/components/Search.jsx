@@ -19,7 +19,7 @@ const Search = () => {
 
   const isDesktopScreen = useMediaQuery('(min-width: 1000px)');
 
-  const { name, setName, setSearch } = useContext(SearchContext);
+  const { name, setName } = useContext(SearchContext);
 
   return (
     <Box
@@ -43,13 +43,11 @@ const Search = () => {
       >
         <SearchIcon
           sx={{ cursor: 'pointer' }}
-          onClick={() => setSearch(true)}
         />
         <StyledTextField
           placeholder='Search for a country...'
           value={name}
           onChange={(e) => setName(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && setSearch(true)}
         />
       </Box>
 

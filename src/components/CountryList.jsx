@@ -15,7 +15,7 @@ import { fetchAllData, fetchByName, fetchByRegion } from '../data/fetch';
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
 
-  const { name, region, search, setRegion, setName, notFound, setNotFound } =
+  const { name, region, setRegion, setName, notFound, setNotFound } =
     useContext(SearchContext);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const CountryList = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, [region, name, search]);
+  }, [region, name]);
 
   return (
     <>
