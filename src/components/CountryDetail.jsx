@@ -135,7 +135,7 @@ const CountryDetail = () => {
                 <Box display='flex' gap={2} flexWrap='wrap' maxWidth={"35rem"}>
                   {country.borders?.map((border, index) => {
                     return (
-                      <StyledButtonCountry key={index} variant='contained' onClick={() => navigate(`/${border}`)}>
+                      <StyledButtonCountry key={index} variant='contained' onClick={() => navigate(`/REST-Country-API/${border}`)}>
                         {border}
                       </StyledButtonCountry>
                     );
