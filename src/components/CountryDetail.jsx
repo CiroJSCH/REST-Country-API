@@ -128,6 +128,7 @@ const CountryDetail = () => {
                 flexDirection={isDesktopScreen ? 'row' : 'column'}
                 gap={2}
                 alignItems={isDesktopScreen ? "center" : "flex-start"}
+                mb={isDesktopScreen ? 0 : 3}
               >
                 <Typography variant='h4' fontWeight={600}>
                   Border Countries:

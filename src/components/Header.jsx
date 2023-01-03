@@ -27,7 +27,7 @@ const Header = ({ changeMode }) => {
         <Typography
           fontWeight={800}
           variant={isDesktopScreen ? 'h2' : 'h4'}
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/REST-Country-API/')}
           sx={{ cursor: 'pointer' }}
         >
           Where in the world?
